@@ -7,6 +7,4 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-      - run: echo Install okteto
-      - run: curl https://get.okteto.com -sSfL | sh
-      - run: okteto --help
+      - run: echo hello
