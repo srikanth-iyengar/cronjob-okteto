@@ -5,6 +5,8 @@ jobs:
       - image: ubuntu
     steps:
       - checkout
+      - run: curl https://get.okteto.com -sSfL | sh
+      - run: okteto
   test:
     docker:
       - image: ubuntu
