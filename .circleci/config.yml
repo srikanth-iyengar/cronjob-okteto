@@ -1,14 +1,11 @@
 version: "2.1"
 jobs:
-  build:
+  up-jenkins:
     docker:
-      - image: ubuntu
+      - image: deadcoder11u2/ci-img
     steps:
       - checkout
-      - run: apt update
-      - run: apt install -y curl
-      - run: curl https://get.okteto.com -sSfL | sh
-      - run: okteto
+      - run: okteto context use https://cloud.okteto.com --token $OKTETO_TOKEN
   test:
     docker:
       - image: ubuntu
@@ -17,5 +14,4 @@ jobs:
 workflows:
   build_and_test:
     jobs:
-      - build
-      - test
+      - up-jenkins
