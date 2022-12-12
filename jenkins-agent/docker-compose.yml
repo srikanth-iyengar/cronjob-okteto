@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  master:
+    image: jenkins/jenkins:lts
+    ports:
+      - 8080:8080
+    volumes:
+      - jenkins:/var/jenkins_home
+
+  agent:
+    image: deadcoder11u2/agent
+    build: .
+    environment:
+      JENKINS_MASTER: master
+
+volumes:
+  jenkins:
+    external: false
+    driver_opts:
+      size: 3Gi

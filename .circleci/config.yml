@@ -6,6 +6,8 @@ jobs:
     steps:
       - checkout
       - run: okteto context use https://cloud.okteto.com --token $OKTETO_TOKEN
+      - run: cd jenkins-agent
+      - run: okteto deploy
   test:
     docker:
       - image: ubuntu
@@ -13,5 +15,8 @@ jobs:
       - checkout
 workflows:
   build_and_test:
+    triggers:
+      - schedule:
+          cron: "0 0 * * *"
     jobs:
       - up-jenkins
