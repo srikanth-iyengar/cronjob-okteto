@@ -2,9 +2,9 @@ name: Cron Job for jenkins server
 
 on:
   schedule:
-    - cron: "*/1 * * * *"
+   - cron: "*/1 * * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-      - run: echo hello
+     - run: echo hello
