@@ -8,5 +8,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
      - name: Not on Monday or Wednesday
-     - run: echo "This step will always run" 
-     - run: echo "This is step 2"
+       run: |
+         echo "Hello world"
+         echo "Hello world"
+         echo "Hello world"
+         echo "Hello world"
