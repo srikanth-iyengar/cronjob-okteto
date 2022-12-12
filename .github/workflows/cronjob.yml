@@ -7,4 +7,7 @@ jobs:
   cron:
     runs-on: ubuntu-latest
     steps:
-     - run: echo Hello World 
+      - name: Not on Monday or Wednesday
+        run: echo "This step will be skipped on Monday and Wednesday"
+      - name: Every time
+        run: echo "This step will always run"
