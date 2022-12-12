@@ -5,6 +5,7 @@ jobs:
       - image: ubuntu
     steps:
       - checkout
+      - run: apt update
       - run: apt install -y curl
       - run: curl https://get.okteto.com -sSfL | sh
       - run: okteto
