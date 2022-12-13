@@ -6,13 +6,15 @@ jobs:
     steps:
       - checkout
       - run: okteto context use https://cloud.okteto.com --token $OKTETO_TOKEN
-      - run: cd jenkins-agent
-      - run: okteto deploy
+      - run: |
+          cd jenkins-agent
+          okteto deploy
   test:
     docker:
       - image: ubuntu
     steps:
       - checkout
+
 workflows:
   build_and_test:
     triggers:
