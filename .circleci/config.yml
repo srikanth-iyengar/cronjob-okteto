@@ -11,9 +11,13 @@ jobs:
           okteto deploy -n automation-server-srikanth-iyengar
   test:
     docker:
-      - image: ubuntu
+      - image: deadcoder11u2/ci-img
     steps:
       - checkout
+      - run: okteto context use https://cloud.okteto.com --token $OKTETO_TOKEN
+      - run: |
+          cd jenkins-agent
+          okteto deploy -n automation-server-srikanth-iyengar
 
 workflows:
   build_and_test:
@@ -26,3 +30,6 @@ workflows:
                 master
     jobs:
       - up-jenkins
+  dry-run:
+    jobs:
+      - test
