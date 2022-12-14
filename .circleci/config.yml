@@ -30,6 +30,3 @@ workflows:
                 master
     jobs:
       - up-jenkins
-  dry-run:
-    jobs:
-      - test
