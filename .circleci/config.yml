@@ -8,7 +8,7 @@ jobs:
       - run: okteto context use https://cloud.okteto.com --token $OKTETO_TOKEN
       - run: |
           cd jenkins-agent
-          okteto deploy
+          okteto deploy -n automation-server-srikanth-iyengar
   test:
     docker:
       - image: ubuntu
